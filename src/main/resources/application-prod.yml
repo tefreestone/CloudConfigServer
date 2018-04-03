@@ -1,0 +1,26 @@
+#=======================================================================================================================
+# Spring Boot Application Properties (Local Profile)
+#     For a full list of supported configuration properties, see:
+#     http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#common-application-properties
+#=======================================================================================================================
+
+logging:
+  level:
+    # Only print informational messages and above from external libraries
+    org: INFO
+    # Provides extra verbose application logging
+    org.lds.sso.appwrap: INFO
+    org.springframework.cloud: INFO
+    org.eclipse.jgit: INFO
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: "https://somehost.domain.org/configrepository.git"
+          searchPaths: '{application}'
+          username: "{cipher}ShouldBeEncrypted"
+          password: '{cipher}ShouldBeEncrypted'
+          clone-on-start: true
+          force-pull: true

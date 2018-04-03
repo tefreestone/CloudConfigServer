@@ -1,0 +1,27 @@
+logging:
+  level:
+    # Only print warnings and above from external libraries
+    org: INFO
+    org.springframework: INFO
+    org.springframework.security: INFO
+    org.springframework.cloud: INFO
+server:
+  port: ${port:0}
+
+management:
+  endpoint:
+    env:
+      enabled: true
+    metrics:
+      enabled: true
+    info:
+      enabled: true
+spring:
+  jackson:
+    serialization:
+      indent_output: true
+  cloud:
+    config:
+      server:
+        encrypt:
+          enabled: true
